@@ -1,111 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Foo</title>
-<meta charset='utf-8' />
-<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
-<style type='text/css'>
-body {
-  background:#000;
-  color:#fff;
-  font-family:'Georgia';
-  margin:0;
-}
-
-@-webkit-keyframes blinker {
-  from { opacity: 1.0; }
-  to { opacity: 0.0; }
-}
-
-em {
-  -webkit-animation-name: blinker;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
-  -webkit-animation-duration: 800ms;
-}
-
-strong {
-  font-weight:normal;
-  color:#FFF707;
-}
-
-a {
-  color:#FFF707;
-  text-decoration:none;
-}
-
-div {
-  cursor:pointer;
-  cursor:hand;
-  position:absolute;
-  top:0;
-  left:0;
-}
-
-</style>
-<script type='text/javascript'>
-window.onload = function() {
-    var s = document.getElementsByTagName('div'), cur = 0, ti;
-    if (!s) return;
-    function go(n) {
-        cur = n;
-        var i = 1e3, e = s[n], t;
-        document.body.className = e.dataset.bodyclass || '';
-        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
-        e.style.display = 'inline';
-        e.style.fontSize = i + 'px';
-        if (e.firstChild && e.firstChild.nodeName === 'IMG') {
-            document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
-            e.firstChild.style.display = 'none';
-            if ('classList' in e) e.classList.add('imageText');
-        } else {
-            document.body.style.backgroundImage = '';
-            document.body.style.backgroundColor = e.style.backgroundColor;
-        }
-        if (ti !== undefined) window.clearInterval(ti);
-        t = parseInt(e.dataset.timeToNext || 0, 10);
-        if (t > 0) ti = window.setTimeout(fwd, (t * 1000));
-        while (
-            e.offsetWidth > window.innerWidth ||
-            e.offsetHeight > window.innerHeight) {
-            e.style.fontSize = (i -= 2) + 'px';
-            if (i < 0) break;
-        }
-        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
-        if (window.location.hash !== n) window.location.hash = n;
-        document.title = e.textContent || e.innerText;
-    }
-    document.onclick = function() { go(++cur % (s.length)); };
-    function fwd() { go(Math.min(s.length - 1, ++cur)); }
-    function rev() { go(Math.max(0, --cur)); }
-    document.onkeydown = function(e) {
-        if (e.which === 39 || e.which === 34 || e.which === 40) fwd();
-        if (e.which === 37 || e.which === 33 || e.which === 38) rev();
-    };
-    document.ontouchstart = function(e) {
-        var x0 = e.changedTouches[0].pageX;
-        document.ontouchend = function(e) {
-            var x1 = e.changedTouches[0].pageX;
-            if (x1 - x0 < 0) fwd();
-            if (x1 - x0 > 0) rev();
-        };
-    };
-    function parse_hash() {
-        return Math.max(Math.min(
-            s.length - 1,
-            parseInt(window.location.hash.substring(1), 10)), 0);
-    }
-    if (window.location.hash) cur = parse_hash() || cur;
-    window.onhashchange = function() {
-        var c = parse_hash();
-        if (c !== cur) go(c);
-    };
-    go(cur);
-};
-</script></head><body>
-<div><h1 id="raster-is-a-disaster-vector-is-a-spectre">Raster is a disaster, vector is a spectre</h1>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <title>big</title>
+  <link href='big.css' rel='stylesheet' type='text/css' />
+  <link href='highlight.css' rel='stylesheet' type='text/css' />
+  <style>
+    .new-shiny { background: #aaaaaa; }
+  </style>
+  <script src='big.js'></script>
+  <script src='highlight.js'></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body class='light'>
+  <div><h1 id="raster-is-a-disaster-vector-is-a-spectre">Raster is a disaster, vector is a spectre</h1>
 <p>The tale of one startup on a budget, wading through the tile wars</p>
 <p>August 18th, 2017</p>
+</div>
+<div><h1 id="remove-later">Remove later</h1>
+<p>Interactive mapping is a battlefield: vector tiles are the alluring wave of the future, but raster tiles are quick and reliable. What&#39;s a startup to do? What follows is the tale of Faraday Inc, a map-driven analytics company with a dedication to FOSS technologies, a willingness to build from the ground up, and a familiar-to-the-industry limit on engineering resources. We&#39;ll walk through comparisons of servers and clients, benchmark crazy geometry experiments, and rediscover some ancient carto-lore we should have paid attention to in the first place, before revealing where we arrived: at an optimal stack for mapping on the web in 2017.</p>
+<p>Incorporate: </p>
+<ul>
+<li><a href="https://github.com/faradayio/grout/blob/master/native/src/lib.rs">https://github.com/faradayio/grout/blob/master/native/src/lib.rs</a></li>
+<li><a href="https://github.com/faradayio/victor/blob/master/src/lib/dot.js">https://github.com/faradayio/victor/blob/master/src/lib/dot.js</a></li>
+</ul>
 </div>
 <div><p>I am:</p>
 <p><a href="https://twitter.com/vtcraghead">Bill Morris</a>, of <a href="https://www.faraday.io/">Faraday Inc.</a></p>
@@ -113,3 +32,15 @@ window.onload = function() {
 <div><p>What I do:</p>
 <p><img src="https://www.dropbox.com/s/4zy5iur3y57c8q9/docbrown.gif?dl=1" alt="data plumbing gif of some sort"></p>
 </div>
+<div><p>The Faraday Map Trajectory</p>
+<ol>
+<li>Carto[DB]</li>
+<li>PostGIS + Tilestache + Leaflet + D3</li>
+<li>PostGIS + Tilesplash + Leaflet + D3</li>
+<li>PostGIS + Tilesplash + Leaflet + Hoverboard</li>
+<li>PostGIS + Tilesplash + MapboxGL</li>
+<li>PostGIS + Rust Tiles + Leaflet</li>
+</ol>
+</div>
+</body>
+</html>
