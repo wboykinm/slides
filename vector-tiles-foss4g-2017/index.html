@@ -15,7 +15,7 @@
 </head>
 <body class='light'>
   <div><h1 id="raster-is-a-disaster-vector-is-a-spectre">Raster is a disaster, vector is a spectre</h1>
-<p>The tale of one startup on a budget, wading through the tile wars</p>
+<p><em>The tale of one startup on a budget, wading through the tile wars</em></p>
 <p>August 18th, 2017</p>
 </div>
 <div><h1 id="remove-later">Remove later</h1>
@@ -27,12 +27,67 @@
 </ul>
 </div>
 <div><p>I am:</p>
-<p><a href="https://twitter.com/vtcraghead">Bill Morris</a>, of <a href="https://www.faraday.io/">Faraday Inc.</a></p>
+<p><a href="https://twitter.com/vtcraghead">Bill Morris</a>, Cartographer at <a href="https://www.faraday.io/">Faraday Inc.</a></p>
 </div>
 <div><p>What I do:</p>
 <p><img src="https://www.dropbox.com/s/4zy5iur3y57c8q9/docbrown.gif?dl=1" alt="data plumbing gif of some sort"></p>
 </div>
-<div><p>The Faraday Map Trajectory</p>
+<div><p>What is Faraday?</p>
+</div>
+<div><p>The Faraday map trajectory: 
+<strong>What the user sees</strong></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/wm9fve8wc2qjgxm/12481925823_0de4e3eb99_o.png?dl=1" alt="cartodb_ui_hexes"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/k4irnz2t5l0ibxq/12521606114_6f51b71226_o.png?dl=1" alt="cartodb.js_dots"></p>
+</div>
+<div><p>&quot;We&#39;ve heard vector tiles are awesome; let&#39;s try them out!&quot;</p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/w954kb9qhx25lgn/13126900385_8e7cd637d9_o.png?dl=1" alt="artifact_hexes"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/vjyrmkn09v243e5/14947042810_63bbdcbc35_o.png?dl=1" alt="now_for_population_density"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/9lyeisl3uci528n/Screenshot%202015-08-27%2009.35.24.png?dl=1" alt="pitt_1"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/c2cymxfa62tgxo9/Screenshot%202015-08-27%2009.39.14.png?dl=1" alt="pitt_2"></p>
+</div>
+<div><p>Scale troubles:
+<img src="https://www.dropbox.com/s/bej6deko227otw6/Screenshot%202015-10-02%2011.58.32.png?dl=1" alt="tile_load"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/qpnutal1xzrhmbl/Screenshot%202016-07-13%2018.26.12.png?dl=1" alt="stabilizing_the_queries"></p>
+</div>
+<div><p>But what we really need is multivariate maps . . .</p>
+</div>
+<div><p>Time for some experiments</p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/9rkgkm4z84g58ke/nested_graduated_symbol.png?dl=1" alt="circles"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/4kj7fmdrhuj1lvn/Screenshot%202016-10-27%2012.07.56.png?dl=1" alt="3d_hexes"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/jv0cv9tkvs8pkcl/Screenshot%202016-11-22%2018.44.53.png?dl=1" alt="multivar_choropleth"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/ikjk5dk3gr7u1hx/Screenshot%202016-11-22%2019.35.42.png?dl=1" alt="dots"></p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/weyrxkyg1t8y18i/Screenshot%202017-05-25%2010.12.16.png?dl=1" alt="final"></p>
+</div>
+<div><p>The Faraday map trajectory:</p>
+<p><strong>Tiles</strong></p>
+</div>
+<div><p>Phase 1: Just let <a href="https://faraday.carto.com/builder/f056ea4e-7758-11e5-b0b9-0ea31932ec1d/embed">Carto[DB]</a> do it for us</p>
+</div>
+<div><p>Phase 2: Use <a href="http://tilestache.org/">Tilestache</a> (Thanks, <a href="https://twitter.com/michalmigurski">@michalmigurski</a>), serve GeoJSON into a hacked-together client</p>
+</div>
+<div><p>Phase 3: Build <a href="https://github.com/faradayio/tilesplash">Tilesplash</a>, serve TopoJSON into a <a href="http://bl.ocks.org/wboykinm/7393674">more-reliably-hacked-together client</a> (Thanks, <a href="https://twitter.com/nelson">@nelson</a>)</p>
+</div>
+<div><p>Phase 4: Update Tilesplash to serve <a href="https://www.mapbox.com/vector-tiles/specification/">MVT</a>, try out <a href="https://twitter.com/vtcraghead/status/887698981303832576">the new Mapbox GL hotness</a></p>
+</div>
+<div><p>Phase 5: Benchmarking and recriminations</p>
+</div>
+<div><p>Phase 6: Start over. Consider old adages. Try <a href="https://www.rust-lang.org/en-US/">Rust.</a></p>
+</div>
+<div><p>Current status: <strong>Stability</strong></p>
+</div>
+<div><h1 id="prob-remove-this-too-">prob. remove this too:</h1>
 <ol>
 <li>Carto[DB]</li>
 <li>PostGIS + Tilestache + Leaflet + D3</li>
