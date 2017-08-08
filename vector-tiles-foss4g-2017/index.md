@@ -126,6 +126,10 @@ Phase 5: Benchmarking and recriminations
 
 ---
 
+"What if we . . . drew dots on a bitmap really fast?"
+
+---
+
 Phase 6: Start over. Consider old adages. Try [Rust.](https://www.rust-lang.org/en-US/)
 
 ---
