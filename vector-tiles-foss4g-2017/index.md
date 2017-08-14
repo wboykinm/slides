@@ -2,15 +2,11 @@
 
 _The tale of one startup on a budget, wading through the tile wars_
 
-August 18th, 2017
+FOSS4G Boston | August 18th, 2017
 ---
 
 #   Abstract
 Interactive mapping is a battlefield: vector tiles are the alluring wave of the future, but raster tiles are quick and reliable. What's a startup to do? What follows is the tale of Faraday Inc, a map-driven analytics company with a dedication to FOSS technologies, a willingness to build from the ground up, and a familiar-to-the-industry limit on engineering resources. We'll walk through comparisons of servers and clients, benchmark crazy geometry experiments, and rediscover some ancient carto-lore we should have paid attention to in the first place, before revealing where we arrived: at an optimal stack for mapping on the web in 2017.
-
-Incorporate: 
-- https://github.com/faradayio/grout/blob/master/native/src/lib.rs
-- https://github.com/faradayio/victor/blob/master/src/lib/dot.js
 
 ---
 
@@ -30,8 +26,31 @@ What is Faraday?
 
 ---
 
-The Faraday map trajectory: 
-__What the user sees__
+Customer Intelligence Platform
+
+---
+
+![platform](https://www.dropbox.com/s/hbwm73bbo5h7y3f/faraday_platform.gif?dl=1)
+
+---
+
+This requires piles of data
+
+---
+
+![fig](https://www.dropbox.com/s/b766m26j8izfnmk/fig.gif?dl=1)
+
+---
+
+The Faraday map trajectory:
+
+---
+
+2014
+
+---
+
+Phase 1: Just let [Carto[DB]](https://faraday.carto.com/builder/f056ea4e-7758-11e5-b0b9-0ea31932ec1d/embed) do it for us
 
 ---
 
@@ -47,11 +66,19 @@ __What the user sees__
 
 ---
 
+Phase 2: Use [Tilestache](http://tilestache.org/) (Thanks, [@michalmigurski](https://twitter.com/michalmigurski)), serve GeoJSON into a hacked-together client
+
+---
+
 ![artifact_hexes](https://www.dropbox.com/s/w954kb9qhx25lgn/13126900385_8e7cd637d9_o.png?dl=1)
 
 ---
 
 ![now_for_population_density](https://www.dropbox.com/s/vjyrmkn09v243e5/14947042810_63bbdcbc35_o.png?dl=1)
+
+---
+
+Phase 3: Build [Tilesplash](https://github.com/faradayio/tilesplash), serve TopoJSON into a [more-reliably-hacked-together client](http://bl.ocks.org/wboykinm/7393674) (Thanks, [@nelson](https://twitter.com/nelson))
 
 ---
 
@@ -72,11 +99,19 @@ Scale troubles:
 
 ---
 
+Phase 4: Update Tilesplash to serve [MVT](https://www.mapbox.com/vector-tiles/specification/)
+
+---
+
 But what we really need is multivariate maps . . .
 
 ---
 
-Time for some experiments
+Phase 5: Rewrite the client. Twice. Try out [the new Mapbox GL hotness](https://twitter.com/vtcraghead/status/887698981303832576)
+
+---
+
+![multivar_choropleth](https://www.dropbox.com/s/jv0cv9tkvs8pkcl/Screenshot%202016-11-22%2018.44.53.png?dl=1)
 
 ---
 
@@ -88,45 +123,12 @@ Time for some experiments
 
 ---
 
-![multivar_choropleth](https://www.dropbox.com/s/jv0cv9tkvs8pkcl/Screenshot%202016-11-22%2018.44.53.png?dl=1)
-
----
-
 ![dots](https://www.dropbox.com/s/ikjk5dk3gr7u1hx/Screenshot%202016-11-22%2019.35.42.png?dl=1)
 
 ---
 
-![final](https://www.dropbox.com/s/weyrxkyg1t8y18i/Screenshot%202017-05-25%2010.12.16.png?dl=1)
-
----
-
-The Faraday map trajectory:
-
-__Tiles__
-
----
-
-Phase 1: Just let [Carto[DB]](https://faraday.carto.com/builder/f056ea4e-7758-11e5-b0b9-0ea31932ec1d/embed) do it for us
-
----
-
-Phase 2: Use [Tilestache](http://tilestache.org/) (Thanks, [@michalmigurski](https://twitter.com/michalmigurski)), serve GeoJSON into a hacked-together client
-
----
-
-Phase 3: Build [Tilesplash](https://github.com/faradayio/tilesplash), serve TopoJSON into a [more-reliably-hacked-together client](http://bl.ocks.org/wboykinm/7393674) (Thanks, [@nelson](https://twitter.com/nelson))
-
----
-
-Phase 4: Update Tilesplash to serve [MVT](https://www.mapbox.com/vector-tiles/specification/), try out [the new Mapbox GL hotness](https://twitter.com/vtcraghead/status/887698981303832576)
-
----
-
-Phase 5: Benchmarking and recriminations
-
----
-
-"What if we . . . drew dots on a bitmap really fast?"
+But these are slow . . .
+__Howdy there, benchmark numbers__
 
 ---
 
@@ -134,7 +136,27 @@ Phase 6: Start over. Consider old adages. Try [Rust.](https://www.rust-lang.org/
 
 ---
 
-Current status: __Stability__
+"What if we . . . drew dots on a bitmap really fast?"
+
+---
+
+Node begs PostGIS for some coords:
+
+![PostGIS abides](https://www.dropbox.com/s/yaesomstca1eazt/Screenshot%202017-08-14%2016.07.19.png?dl=1)
+
+---
+
+Rust devours the output:
+
+![drawcircles](https://www.dropbox.com/s/4agbmdlx1rrq306/Screenshot%202017-08-14%2016.11.33.png?dl=1)
+
+---
+
+Current status: __Speed and Stability__
+
+---
+
+![final](https://www.dropbox.com/s/weyrxkyg1t8y18i/Screenshot%202017-05-25%2010.12.16.png?dl=1)
 
 ---
 
@@ -153,11 +175,14 @@ Q: Why might you just ride the vector wave?
 A: Lord. A million reasons, but [here's one from just this week](https://developmentseed.org/blog/2017/08/09/mapbox-query-data/)
 
 ---
-# prob. remove this too:
 
-1. Carto[DB]
-2. PostGIS + Tilestache + Leaflet + D3
-3. PostGIS + Tilesplash + Leaflet + D3
-4. PostGIS + Tilesplash + Leaflet + Hoverboard
-5. PostGIS + Tilesplash + MapboxGL
-6. PostGIS + Rust Tiles + Leaflet
+Thanks! Hit me up with any other questions:
+[bill@faraday.io](bill@faraday.io)
+[@vtcraghead](https://twitter.com/vtcraghead) on Twitter
+
+---
+
+Bill's Notes: 
+- https://github.com/faradayio/grout/blob/master/native/src/lib.rs
+- https://github.com/faradayio/victor/blob/master/src/lib/dot.js
+
