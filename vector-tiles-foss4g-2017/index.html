@@ -17,9 +17,8 @@
   <div><h1 id="raster-is-a-disaster-vector-is-a-spectre">Raster is a disaster, vector is a spectre</h1>
 <p><em>The tale of one startup on a budget, wading through the tile wars</em></p>
 <p>FOSS4G Boston | August 18th, 2017</p>
-</div>
-<div><h1 id="abstract">Abstract</h1>
-<p>Interactive mapping is a battlefield: vector tiles are the alluring wave of the future, but raster tiles are quick and reliable. What&#39;s a startup to do? What follows is the tale of Faraday Inc, a map-driven analytics company with a dedication to FOSS technologies, a willingness to build from the ground up, and a familiar-to-the-industry limit on engineering resources. We&#39;ll walk through comparisons of servers and clients, benchmark crazy geometry experiments, and rediscover some ancient carto-lore we should have paid attention to in the first place, before revealing where we arrived: at an optimal stack for mapping on the web in 2017.</p>
+<notes>Interactive mapping is a battlefield: vector tiles are the alluring wave of the future, but raster tiles are quick and reliable. What&#39;s a startup to do? What follows is the tale of Faraday Inc, a map-driven analytics company with a dedication to FOSS technologies, a willingness to build from the ground up, and a familiar-to-the-industry limit on engineering resources. We&#39;ll walk through comparisons of servers and clients, benchmark crazy geometry experiments, and rediscover some ancient carto-lore we should have paid attention to in the first place, before revealing where we arrived: at an optimal stack for mapping on the web in 2017.</notes>
+
 </div>
 <div><p>I am:</p>
 <p><a href="https://twitter.com/vtcraghead">Bill Morris</a>, Cartographer at <a href="https://www.faraday.io/">Faraday Inc.</a></p>
@@ -27,33 +26,61 @@
 <div><p>What I do:</p>
 <p><img src="https://www.dropbox.com/s/4zy5iur3y57c8q9/docbrown.gif?dl=1" alt="data plumbing gif of some sort"></p>
 </div>
-<div><p>What is Faraday?</p>
+<div><ul>
+<li><strong>What is Faraday?</strong></li>
+<li>How does mapping fit in at Faraday?</li>
+<li>How do tiles power the Faraday map?</li>
+</ul>
 </div>
 <div><p>Customer Intelligence Platform</p>
 </div>
-<div><p><img src="https://www.dropbox.com/s/hbwm73bbo5h7y3f/faraday_platform.gif?dl=1" alt="platform"></p>
+<div><p><img src="https://www.dropbox.com/s/ry9ctlqdr076buz/Screenshot%202017-08-16%2023.22.21.png?dl=1" alt="platform"></p>
 </div>
 <div><p>This requires piles of data</p>
 </div>
 <div><p><img src="https://www.dropbox.com/s/b766m26j8izfnmk/fig.gif?dl=1" alt="fig"></p>
 </div>
-<div><p>The Faraday map trajectory:</p>
-</div>
-<div><p>2014</p>
+<div><ul>
+<li>What is Faraday?</li>
+<li><strong>How does mapping fit in at Faraday?</strong></li>
+<li>How do tiles power the Faraday map?</li>
+</ul>
 </div>
 <div><p>Phase 1: Just let <a href="https://faraday.carto.com/builder/f056ea4e-7758-11e5-b0b9-0ea31932ec1d/embed">Carto[DB]</a> do it for us</p>
 </div>
-<div><p><img src="https://www.dropbox.com/s/wm9fve8wc2qjgxm/12481925823_0de4e3eb99_o.png?dl=1" alt="cartodb_ui_hexes"></p>
-</div>
 <div><p><img src="https://www.dropbox.com/s/k4irnz2t5l0ibxq/12521606114_6f51b71226_o.png?dl=1" alt="cartodb.js_dots"></p>
 </div>
-<div><p>&quot;We&#39;ve heard vector tiles are awesome; let&#39;s try them out!&quot;</p>
+<div><p><img src="https://www.dropbox.com/s/wm9fve8wc2qjgxm/12481925823_0de4e3eb99_o.png?dl=1" alt="cartodb_ui_hexes"></p>
+</div>
+<div><p>Owning the cartographic design</p>
+</div>
+<div><p><img src="https://cloud.githubusercontent.com/assets/735463/2822550/01df4cbe-cf14-11e3-815d-7b6f25a43572.png" alt="prototype"></p>
+</div>
+<div><p>Which was inspired by . . .</p>
+</div>
+<div><p><img src="https://cloud.githubusercontent.com/assets/735463/2822443/c5ee7f00-cf12-11e3-8f14-dc3b12dde4ce.png" alt="olivia"></p>
+<notes>Credit: &quot;Olivia Forms a Band&quot; by Ian Falconer</notes>
+
+
+</div>
+<div><p>. . . the color scheme in one of my sons&#39; favorite bedtime books.</p>
+</div>
+<div><p>Briefly jump ahead a few years . . .</p>
+<p><img src="https://www.dropbox.com/s/mn163g1raefp5il/Screenshot%202017-08-16%2023.31.51.png?dl=1" alt="map"></p>
+</div>
+<div><p>Back to the early days:</p>
+</div>
+<div><p>OH @faradayio: &quot;We&#39;ve heard vector tiles are awesome; let&#39;s try them out!&quot;</p>
+</div>
+<div><ul>
+<li>What is Faraday?</li>
+<li>How does mapping fit in at Faraday?</li>
+<li><strong>How do tiles power the Faraday map?</strong></li>
+</ul>
 </div>
 <div><p>Phase 2: Use <a href="http://tilestache.org/">Tilestache</a> (Thanks, <a href="https://twitter.com/michalmigurski">@michalmigurski</a>), serve GeoJSON into a hacked-together client</p>
 </div>
 <div><p><img src="https://www.dropbox.com/s/w954kb9qhx25lgn/13126900385_8e7cd637d9_o.png?dl=1" alt="artifact_hexes"></p>
-</div>
-<div><p><img src="https://www.dropbox.com/s/vjyrmkn09v243e5/14947042810_63bbdcbc35_o.png?dl=1" alt="now_for_population_density"></p>
 </div>
 <div><p>Phase 3: Build <a href="https://github.com/faradayio/tilesplash">Tilesplash</a>, serve TopoJSON into a <a href="http://bl.ocks.org/wboykinm/7393674">more-reliably-hacked-together client</a> (Thanks, <a href="https://twitter.com/nelson">@nelson</a>)</p>
 </div>
@@ -64,13 +91,13 @@
 <div><p>Scale troubles:
 <img src="https://www.dropbox.com/s/bej6deko227otw6/Screenshot%202015-10-02%2011.58.32.png?dl=1" alt="tile_load"></p>
 </div>
-<div><p><img src="https://www.dropbox.com/s/qpnutal1xzrhmbl/Screenshot%202016-07-13%2018.26.12.png?dl=1" alt="stabilizing_the_queries"></p>
-</div>
 <div><p>Phase 4: Update Tilesplash to serve <a href="https://www.mapbox.com/vector-tiles/specification/">MVT</a></p>
 </div>
-<div><p>But what we really need is multivariate maps . . .</p>
+<div><p>Phase 5: Rewrite the client. Twice. Try out <a href="https://twitter.com/vtcraghead/status/887698981303832576">the new Mapbox GL hotness</a>.</p>
 </div>
-<div><p>Phase 5: Rewrite the client. Twice. Try out <a href="https://twitter.com/vtcraghead/status/887698981303832576">the new Mapbox GL hotness</a></p>
+<div><p>. . . and prepare to introduce multivariate maps.</p>
+<notes>Revisit the design for multivariate, with implications for the tiling</notes>
+
 </div>
 <div><p><img src="https://www.dropbox.com/s/jv0cv9tkvs8pkcl/Screenshot%202016-11-22%2018.44.53.png?dl=1" alt="multivar_choropleth"></p>
 </div>
@@ -79,23 +106,33 @@
 <div><p><img src="https://www.dropbox.com/s/4kj7fmdrhuj1lvn/Screenshot%202016-10-27%2012.07.56.png?dl=1" alt="3d_hexes"></p>
 </div>
 <div><p><img src="https://www.dropbox.com/s/ikjk5dk3gr7u1hx/Screenshot%202016-11-22%2019.35.42.png?dl=1" alt="dots"></p>
+<notes>This last one is promising - it lets us sidestep the multivariate acarto-tricks and just show the raw data, but it&#39;s slow when served by tilesplash to MapboxGL. OH is only(!) 10M points, but we have way more than that nationally.</notes>
+
 </div>
-<div><p>But these are slow . . .
-<strong>Howdy there, benchmark numbers</strong></p>
-</div>
-<div><p>Phase 6: Start over. Consider old adages. Try <a href="https://www.rust-lang.org/en-US/">Rust.</a></p>
+<div><p>Phase 6: Start over. Consider old adages.</p>
 </div>
 <div><p>&quot;What if we . . . drew dots on a bitmap really fast?&quot;</p>
 </div>
-<div><p>Node begs PostGIS for some coords:</p>
-<p><img src="https://www.dropbox.com/s/yaesomstca1eazt/Screenshot%202017-08-14%2016.07.19.png?dl=1" alt="PostGIS abides"></p>
+<div><p>Enter <a href="https://www.rust-lang.org/en-US/">Rust</a>, and &quot;Grout&quot;.</p>
+<notes> . . . the work of Eric Kidd and Tristan Davies</notes>
+
 </div>
-<div><p>Rust devours the output:</p>
-<p><img src="https://www.dropbox.com/s/4agbmdlx1rrq306/Screenshot%202017-08-14%2016.11.33.png?dl=1" alt="drawcircles"></p>
+<div><p>Node begs PostGIS for some coords:</p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/yaesomstca1eazt/Screenshot%202017-08-14%2016.07.19.png?dl=1" alt="PostGIS abides"></p>
+</div>
+<div><p>Rust devours the output, renders pngs:</p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/4agbmdlx1rrq306/Screenshot%202017-08-14%2016.11.33.png?dl=1" alt="drawcircles"></p>
 </div>
 <div><p>Current status: <strong>Speed and Stability</strong></p>
+<ul>
+<li>PostGIS on Citus (which is on AWS)</li>
+<li>NodeJS + Rust for server-side tiling (Containerized on AWS ECS)</li>
+<li>Mapbox.js up front (Also containerized on AWS ECS)</li>
+</ul>
 </div>
-<div><p><img src="https://www.dropbox.com/s/weyrxkyg1t8y18i/Screenshot%202017-05-25%2010.12.16.png?dl=1" alt="final"></p>
+<div><p><img src="https://www.dropbox.com/s/77bcj3cl70lmt6t/Screenshot%202017-08-16%2015.08.28.png?dl=1" alt="final"></p>
 </div>
 <div><p>Q: Why might you go raster these days?</p>
 </div>
@@ -108,12 +145,6 @@
 <div><p>Thanks! Hit me up with any other questions:
 <a href="bill@faraday.io">bill@faraday.io</a>
 <a href="https://twitter.com/vtcraghead">@vtcraghead</a> on Twitter</p>
-</div>
-<div><p>Bill&#39;s Notes: </p>
-<ul>
-<li><a href="https://github.com/faradayio/grout/blob/master/native/src/lib.rs">https://github.com/faradayio/grout/blob/master/native/src/lib.rs</a></li>
-<li><a href="https://github.com/faradayio/victor/blob/master/src/lib/dot.js">https://github.com/faradayio/victor/blob/master/src/lib/dot.js</a></li>
-</ul>
 </div>
 </body>
 </html>

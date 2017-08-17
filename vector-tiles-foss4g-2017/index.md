@@ -3,10 +3,8 @@
 _The tale of one startup on a budget, wading through the tile wars_
 
 FOSS4G Boston | August 18th, 2017
----
 
-#   Abstract
-Interactive mapping is a battlefield: vector tiles are the alluring wave of the future, but raster tiles are quick and reliable. What's a startup to do? What follows is the tale of Faraday Inc, a map-driven analytics company with a dedication to FOSS technologies, a willingness to build from the ground up, and a familiar-to-the-industry limit on engineering resources. We'll walk through comparisons of servers and clients, benchmark crazy geometry experiments, and rediscover some ancient carto-lore we should have paid attention to in the first place, before revealing where we arrived: at an optimal stack for mapping on the web in 2017.
+<notes>Interactive mapping is a battlefield: vector tiles are the alluring wave of the future, but raster tiles are quick and reliable. What's a startup to do? What follows is the tale of Faraday Inc, a map-driven analytics company with a dedication to FOSS technologies, a willingness to build from the ground up, and a familiar-to-the-industry limit on engineering resources. We'll walk through comparisons of servers and clients, benchmark crazy geometry experiments, and rediscover some ancient carto-lore we should have paid attention to in the first place, before revealing where we arrived: at an optimal stack for mapping on the web in 2017.</notes>
 
 ---
 
@@ -22,7 +20,9 @@ What I do:
 
 ---
 
-What is Faraday?
+ - __What is Faraday?__
+ - How does mapping fit in at Faraday?
+ - How do tiles power the Faraday map?
 
 ---
 
@@ -30,7 +30,7 @@ Customer Intelligence Platform
 
 ---
 
-![platform](https://www.dropbox.com/s/hbwm73bbo5h7y3f/faraday_platform.gif?dl=1)
+![platform](https://www.dropbox.com/s/ry9ctlqdr076buz/Screenshot%202017-08-16%2023.22.21.png?dl=1)
 
 ---
 
@@ -42,11 +42,9 @@ This requires piles of data
 
 ---
 
-The Faraday map trajectory:
-
----
-
-2014
+ - What is Faraday?
+ - __How does mapping fit in at Faraday?__
+ - How do tiles power the Faraday map?
 
 ---
 
@@ -54,15 +52,52 @@ Phase 1: Just let [Carto[DB]](https://faraday.carto.com/builder/f056ea4e-7758-11
 
 ---
 
-![cartodb_ui_hexes](https://www.dropbox.com/s/wm9fve8wc2qjgxm/12481925823_0de4e3eb99_o.png?dl=1)
-
----
-
 ![cartodb.js_dots](https://www.dropbox.com/s/k4irnz2t5l0ibxq/12521606114_6f51b71226_o.png?dl=1)
 
 ---
 
-"We've heard vector tiles are awesome; let's try them out!"
+![cartodb_ui_hexes](https://www.dropbox.com/s/wm9fve8wc2qjgxm/12481925823_0de4e3eb99_o.png?dl=1)
+
+---
+
+Owning the cartographic design
+
+---
+
+![prototype](https://cloud.githubusercontent.com/assets/735463/2822550/01df4cbe-cf14-11e3-815d-7b6f25a43572.png)
+
+---
+
+Which was inspired by . . .
+
+---
+![olivia](https://cloud.githubusercontent.com/assets/735463/2822443/c5ee7f00-cf12-11e3-8f14-dc3b12dde4ce.png)
+<notes>Credit: "Olivia Forms a Band" by Ian Falconer</notes>
+
+
+---
+
+. . . the color scheme in one of my sons' favorite bedtime books.
+
+---
+
+Briefly jump ahead a few years . . .
+
+![map](https://www.dropbox.com/s/mn163g1raefp5il/Screenshot%202017-08-16%2023.31.51.png?dl=1)
+
+---
+
+Back to the early days:
+
+---
+
+OH @faradayio: "We've heard vector tiles are awesome; let's try them out!"
+
+---
+
+ - What is Faraday?
+ - How does mapping fit in at Faraday?
+ - __How do tiles power the Faraday map?__
 
 ---
 
@@ -71,10 +106,6 @@ Phase 2: Use [Tilestache](http://tilestache.org/) (Thanks, [@michalmigurski](htt
 ---
 
 ![artifact_hexes](https://www.dropbox.com/s/w954kb9qhx25lgn/13126900385_8e7cd637d9_o.png?dl=1)
-
----
-
-![now_for_population_density](https://www.dropbox.com/s/vjyrmkn09v243e5/14947042810_63bbdcbc35_o.png?dl=1)
 
 ---
 
@@ -95,19 +126,17 @@ Scale troubles:
 
 ---
 
-![stabilizing_the_queries](https://www.dropbox.com/s/qpnutal1xzrhmbl/Screenshot%202016-07-13%2018.26.12.png?dl=1)
-
----
-
 Phase 4: Update Tilesplash to serve [MVT](https://www.mapbox.com/vector-tiles/specification/)
 
 ---
 
-But what we really need is multivariate maps . . .
+Phase 5: Rewrite the client. Twice. Try out [the new Mapbox GL hotness](https://twitter.com/vtcraghead/status/887698981303832576).
 
 ---
 
-Phase 5: Rewrite the client. Twice. Try out [the new Mapbox GL hotness](https://twitter.com/vtcraghead/status/887698981303832576)
+. . . and prepare to introduce multivariate maps.
+
+<notes>Revisit the design for multivariate, with implications for the tiling</notes>
 
 ---
 
@@ -125,14 +154,11 @@ Phase 5: Rewrite the client. Twice. Try out [the new Mapbox GL hotness](https://
 
 ![dots](https://www.dropbox.com/s/ikjk5dk3gr7u1hx/Screenshot%202016-11-22%2019.35.42.png?dl=1)
 
----
-
-But these are slow . . .
-__Howdy there, benchmark numbers__
+<notes>This last one is promising - it lets us sidestep the multivariate acarto-tricks and just show the raw data, but it's slow when served by tilesplash to MapboxGL. OH is only(!) 10M points, but we have way more than that nationally.</notes>
 
 ---
 
-Phase 6: Start over. Consider old adages. Try [Rust.](https://www.rust-lang.org/en-US/)
+Phase 6: Start over. Consider old adages.
 
 ---
 
@@ -140,13 +166,23 @@ Phase 6: Start over. Consider old adages. Try [Rust.](https://www.rust-lang.org/
 
 ---
 
+Enter [Rust](https://www.rust-lang.org/en-US/), and "Grout".
+
+<notes> . . . the work of Eric Kidd and Tristan Davies</notes>
+
+---
+
 Node begs PostGIS for some coords:
+
+---
 
 ![PostGIS abides](https://www.dropbox.com/s/yaesomstca1eazt/Screenshot%202017-08-14%2016.07.19.png?dl=1)
 
 ---
 
-Rust devours the output:
+Rust devours the output, renders pngs:
+
+---
 
 ![drawcircles](https://www.dropbox.com/s/4agbmdlx1rrq306/Screenshot%202017-08-14%2016.11.33.png?dl=1)
 
@@ -154,9 +190,13 @@ Rust devours the output:
 
 Current status: __Speed and Stability__
 
+- PostGIS on Citus (which is on AWS)
+- NodeJS + Rust for server-side tiling (Containerized on AWS ECS)
+- Mapbox.js up front (Also containerized on AWS ECS)
+
 ---
 
-![final](https://www.dropbox.com/s/weyrxkyg1t8y18i/Screenshot%202017-05-25%2010.12.16.png?dl=1)
+![final](https://www.dropbox.com/s/77bcj3cl70lmt6t/Screenshot%202017-08-16%2015.08.28.png?dl=1)
 
 ---
 
@@ -179,10 +219,4 @@ A: Lord. A million reasons, but [here's one from just this week](https://develop
 Thanks! Hit me up with any other questions:
 [bill@faraday.io](bill@faraday.io)
 [@vtcraghead](https://twitter.com/vtcraghead) on Twitter
-
----
-
-Bill's Notes: 
-- https://github.com/faradayio/grout/blob/master/native/src/lib.rs
-- https://github.com/faradayio/victor/blob/master/src/lib/dot.js
 
