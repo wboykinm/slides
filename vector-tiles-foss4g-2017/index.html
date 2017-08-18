@@ -46,29 +46,27 @@
 <li>How do tiles power the Faraday map?</li>
 </ul>
 </div>
-<div><p>Phase 1: Just let <a href="https://faraday.carto.com/builder/f056ea4e-7758-11e5-b0b9-0ea31932ec1d/embed">Carto[DB]</a> do it for us</p>
+<div><p>A map-centered application</p>
+</div>
+<div><p><img src="https://www.dropbox.com/s/mn163g1raefp5il/Screenshot%202017-08-16%2023.31.51.png?dl=1" alt="map"></p>
+</div>
+<div><p>But it wasn&#39;t always this way . . .</p>
+</div>
+<div><p>Phase 1 (2014): Just let <a href="https://faraday.carto.com/builder/f056ea4e-7758-11e5-b0b9-0ea31932ec1d/embed">Carto[DB]</a> handle it for us</p>
 </div>
 <div><p><img src="https://www.dropbox.com/s/k4irnz2t5l0ibxq/12521606114_6f51b71226_o.png?dl=1" alt="cartodb.js_dots"></p>
 </div>
 <div><p><img src="https://www.dropbox.com/s/wm9fve8wc2qjgxm/12481925823_0de4e3eb99_o.png?dl=1" alt="cartodb_ui_hexes"></p>
 </div>
-<div><p>Owning the cartographic design</p>
+<div><p>Establishing the visual style . . .</p>
 </div>
 <div><p><img src="https://cloud.githubusercontent.com/assets/735463/2822550/01df4cbe-cf14-11e3-815d-7b6f25a43572.png" alt="prototype"></p>
 </div>
-<div><p>Which was inspired by . . .</p>
+<div><p>Side note:</p>
 </div>
 <div><p><img src="https://cloud.githubusercontent.com/assets/735463/2822443/c5ee7f00-cf12-11e3-8f14-dc3b12dde4ce.png" alt="olivia"></p>
 <notes>Credit: &quot;Olivia Forms a Band&quot; by Ian Falconer</notes>
 
-
-</div>
-<div><p>. . . the color scheme in one of my sons&#39; favorite bedtime books.</p>
-</div>
-<div><p>Briefly jump ahead a few years . . .</p>
-<p><img src="https://www.dropbox.com/s/mn163g1raefp5il/Screenshot%202017-08-16%2023.31.51.png?dl=1" alt="map"></p>
-</div>
-<div><p>Back to the early days:</p>
 </div>
 <div><p>OH @faradayio: &quot;We&#39;ve heard vector tiles are awesome; let&#39;s try them out!&quot;</p>
 </div>
@@ -78,11 +76,11 @@
 <li><strong>How do tiles power the Faraday map?</strong></li>
 </ul>
 </div>
-<div><p>Phase 2: Use <a href="http://tilestache.org/">Tilestache</a> (Thanks, <a href="https://twitter.com/michalmigurski">@michalmigurski</a>), serve GeoJSON into a hacked-together client</p>
+<div><p>Phase 2: Use <a href="http://tilestache.org/">Tilestache</a> (Thanks, <a href="https://twitter.com/michalmigurski">@michalmigurski</a>), serve GeoJSON into a <a href="http://bl.ocks.org/wboykinm/7393674">hacked-together d3.js-based client</a> (Thanks, <a href="https://twitter.com/nelson">@nelson</a>)</p>
 </div>
 <div><p><img src="https://www.dropbox.com/s/w954kb9qhx25lgn/13126900385_8e7cd637d9_o.png?dl=1" alt="artifact_hexes"></p>
 </div>
-<div><p>Phase 3: Build <a href="https://github.com/faradayio/tilesplash">Tilesplash</a>, serve TopoJSON into a <a href="http://bl.ocks.org/wboykinm/7393674">more-reliably-hacked-together client</a> (Thanks, <a href="https://twitter.com/nelson">@nelson</a>)</p>
+<div><p>Phase 3: Build <a href="https://github.com/faradayio/tilesplash">Tilesplash</a>, serve TopoJSON into a dedicated canvas-based client layer (<a href="https://github.com/devtristan/hoverboard">Hoverboard</a>)</p>
 </div>
 <div><p><img src="https://www.dropbox.com/s/9lyeisl3uci528n/Screenshot%202015-08-27%2009.35.24.png?dl=1" alt="pitt_1"></p>
 </div>
@@ -93,9 +91,9 @@
 </div>
 <div><p>Phase 4: Update Tilesplash to serve <a href="https://www.mapbox.com/vector-tiles/specification/">MVT</a></p>
 </div>
-<div><p>Phase 5: Rewrite the client. Twice. Try out <a href="https://twitter.com/vtcraghead/status/887698981303832576">the new Mapbox GL hotness</a>.</p>
+<div><p>Phase 5: Rewrite the client. Again. Try out <a href="https://twitter.com/vtcraghead/status/887698981303832576">the new Mapbox GL hotness</a>.</p>
 </div>
-<div><p>. . . and prepare to introduce multivariate maps.</p>
+<div><p>. . . and prepare to introduce multivariate maps. Experiments:</p>
 <notes>Revisit the design for multivariate, with implications for the tiling</notes>
 
 </div>
@@ -129,7 +127,7 @@
 <ul>
 <li>PostGIS on Citus (which is on AWS)</li>
 <li>NodeJS + Rust for server-side tiling (Containerized on AWS ECS)</li>
-<li>Mapbox.js up front (Also containerized on AWS ECS)</li>
+<li>React-leaflet up front (Also containerized on AWS ECS)</li>
 </ul>
 </div>
 <div><p><img src="https://www.dropbox.com/s/77bcj3cl70lmt6t/Screenshot%202017-08-16%2015.08.28.png?dl=1" alt="final"></p>

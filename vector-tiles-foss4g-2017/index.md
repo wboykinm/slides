@@ -48,7 +48,19 @@ This requires piles of data
 
 ---
 
-Phase 1: Just let [Carto[DB]](https://faraday.carto.com/builder/f056ea4e-7758-11e5-b0b9-0ea31932ec1d/embed) do it for us
+A map-centered application
+
+---
+
+![map](https://www.dropbox.com/s/mn163g1raefp5il/Screenshot%202017-08-16%2023.31.51.png?dl=1)
+
+---
+
+But it wasn't always this way . . .
+
+---
+
+Phase 1 (2014): Just let [Carto[DB]](https://faraday.carto.com/builder/f056ea4e-7758-11e5-b0b9-0ea31932ec1d/embed) handle it for us
 
 ---
 
@@ -60,7 +72,7 @@ Phase 1: Just let [Carto[DB]](https://faraday.carto.com/builder/f056ea4e-7758-11
 
 ---
 
-Owning the cartographic design
+Establishing the visual style . . .
 
 ---
 
@@ -68,26 +80,11 @@ Owning the cartographic design
 
 ---
 
-Which was inspired by . . .
+Side note:
 
 ---
 ![olivia](https://cloud.githubusercontent.com/assets/735463/2822443/c5ee7f00-cf12-11e3-8f14-dc3b12dde4ce.png)
 <notes>Credit: "Olivia Forms a Band" by Ian Falconer</notes>
-
-
----
-
-. . . the color scheme in one of my sons' favorite bedtime books.
-
----
-
-Briefly jump ahead a few years . . .
-
-![map](https://www.dropbox.com/s/mn163g1raefp5il/Screenshot%202017-08-16%2023.31.51.png?dl=1)
-
----
-
-Back to the early days:
 
 ---
 
@@ -101,7 +98,7 @@ OH @faradayio: "We've heard vector tiles are awesome; let's try them out!"
 
 ---
 
-Phase 2: Use [Tilestache](http://tilestache.org/) (Thanks, [@michalmigurski](https://twitter.com/michalmigurski)), serve GeoJSON into a hacked-together client
+Phase 2: Use [Tilestache](http://tilestache.org/) (Thanks, [@michalmigurski](https://twitter.com/michalmigurski)), serve GeoJSON into a [hacked-together d3.js-based client](http://bl.ocks.org/wboykinm/7393674) (Thanks, [@nelson](https://twitter.com/nelson))
 
 ---
 
@@ -109,7 +106,7 @@ Phase 2: Use [Tilestache](http://tilestache.org/) (Thanks, [@michalmigurski](htt
 
 ---
 
-Phase 3: Build [Tilesplash](https://github.com/faradayio/tilesplash), serve TopoJSON into a [more-reliably-hacked-together client](http://bl.ocks.org/wboykinm/7393674) (Thanks, [@nelson](https://twitter.com/nelson))
+Phase 3: Build [Tilesplash](https://github.com/faradayio/tilesplash), serve TopoJSON into a dedicated canvas-based client layer ([Hoverboard](https://github.com/devtristan/hoverboard))
 
 ---
 
@@ -130,11 +127,11 @@ Phase 4: Update Tilesplash to serve [MVT](https://www.mapbox.com/vector-tiles/sp
 
 ---
 
-Phase 5: Rewrite the client. Twice. Try out [the new Mapbox GL hotness](https://twitter.com/vtcraghead/status/887698981303832576).
+Phase 5: Rewrite the client. Again. Try out [the new Mapbox GL hotness](https://twitter.com/vtcraghead/status/887698981303832576).
 
 ---
 
-. . . and prepare to introduce multivariate maps.
+. . . and prepare to introduce multivariate maps. Experiments:
 
 <notes>Revisit the design for multivariate, with implications for the tiling</notes>
 
@@ -192,7 +189,7 @@ Current status: __Speed and Stability__
 
 - PostGIS on Citus (which is on AWS)
 - NodeJS + Rust for server-side tiling (Containerized on AWS ECS)
-- Mapbox.js up front (Also containerized on AWS ECS)
+- React-leaflet up front (Also containerized on AWS ECS)
 
 ---
 
