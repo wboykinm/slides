@@ -16,6 +16,10 @@ __Maps are infrastructure__
 
 ---
 
+![waze](https://www.dropbox.com/s/4nx7wwv4ogu5p69/02_eta_panel.gif?dl=1)
+
+---
+
 . . . against long-term vulnerability
 
 ---
@@ -32,7 +36,15 @@ __Maps are infrastructure__
 
 ---
 
+Nepal, 2015
+
+---
+
 ![Nepal, 2015](https://www.dropbox.com/s/kyu3do9ehn6cevy/Screen%20Shot%202017-01-18%20at%208.19.57%20PM.png?dl=1)
+
+---
+
+Responders need to plan routes and find people
 
 ---
 
@@ -40,7 +52,19 @@ __Maps are infrastructure__
 
 ---
 
+The map needed filling-in, fast
+
+---
+
 ![expansion](http://i.imgur.com/3wrcGZV.gif)
+
+---
+
+How it works:
+
+---
+
+1. Responding agency request
 
 ---
 
@@ -48,11 +72,23 @@ __Maps are infrastructure__
 
 ---
 
+2. Affected area identified and distributed
+
+---
+
 ![Tasks](https://www.dropbox.com/s/vdhmjvfvy84wefh/Screenshot%202017-09-29%2016.16.19.png?dl=1)
 
 ---
 
+3. Mappers organize
+
+---
+
 ![Camp](http://wiki.openstreetmap.org/w/images/5/56/Btvcrisiscamp.jpg)
+
+---
+
+4. The results are used in the field for response and recovery
 
 ---
 
@@ -64,11 +100,19 @@ __Maps are infrastructure__
 
 ---
 
-![OSM](https://wiki.openstreetmap.org/w/images/9/94/OpenStreetMap_logo_8_colour.png)
+![Dale](https://www.datainnovation.org/wp-content/uploads/2016/12/Dale-in-Liberia.jpg)
+
+---
+
+OpenStreetmap
 
 ---
 
 ![BTV](https://www.dropbox.com/s/167gm0kq2db74lw/Screenshot%202017-09-29%2016.23.43.png?dl=1)
+
+---
+
+. . . the Humanitarian OpenStreetmap Team (HOT)
 
 ---
 
@@ -87,4 +131,9 @@ How to access data:
 
 - [Metro extracts](https://mapzen.com/data/metro-extracts/)
 - [Software/APIs](https://wiki.openstreetmap.org/wiki/Using_OpenStreetMap)
+
+---
+
+<iframe width="1200px" height="800px" src="https://osmlab.github.io/show-me-the-way/"></iframe>
+
 
