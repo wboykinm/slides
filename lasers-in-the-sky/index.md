@@ -108,7 +108,7 @@ OpenStreetmap
 
 ---
 
-. . . the Humanitarian OpenStreetmap Team (HOT)
+. . . [the Humanitarian OpenStreetmap Team (HOT)](http://tasks.hotosm.org/)
 
 ---
 
@@ -118,8 +118,8 @@ OpenStreetmap
 
 How to get involved:
 
-- [Missing Maps](http://www.missingmaps.org/)
 - [osm.org](http://www.openstreetmap.org/#map=17/44.46684/-73.21444)
+- [HOT](http://tasks.hotosm.org/)
 
 ---
 
