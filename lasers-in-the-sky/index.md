@@ -1,7 +1,3 @@
-![lasers](https://www.dropbox.com/s/gmnbft3itgti61r/lasers_intro.png?dl=1)
-
----
-
 # Maps save lives
 
 _Openstreetmap and the data all around us_
