@@ -16,7 +16,24 @@ __Maps are infrastructure__
 
 ---
 
-. . . against long-term vulnerability
+OpenStreetmap
+
+---
+
+![BTV](https://www.dropbox.com/s/167gm0kq2db74lw/Screenshot%202017-09-29%2016.23.43.png?dl=1)
+
+---
+
+. . . [the Humanitarian OpenStreetmap Team (HOT)](http://tasks.hotosm.org/)
+
+---
+
+![HOT](https://wiki.openstreetmap.org/w/images/thumb/a/af/Hot_logo_with_text.svg/1024px-Hot_logo_with_text.svg.png)
+
+---
+
+
+Infrastructure . . . against long-term vulnerability
 
 ---
 
@@ -60,7 +77,7 @@ How it works:
 
 ---
 
-1. Responding agency request
+- Responding agency request
 
 ---
 
@@ -68,7 +85,7 @@ How it works:
 
 ---
 
-2. Affected area identified and distributed
+- Affected area identified and distributed
 
 ---
 
@@ -76,7 +93,7 @@ How it works:
 
 ---
 
-3. Mappers organize
+- Mappers organize
 
 ---
 
@@ -84,7 +101,7 @@ How it works:
 
 ---
 
-4. The results are used in the field for response and recovery
+- The results are used in the field for response and recovery
 
 ---
 
@@ -97,22 +114,6 @@ How it works:
 ---
 
 ![Dale](https://www.datainnovation.org/wp-content/uploads/2016/12/Dale-in-Liberia.jpg)
-
----
-
-OpenStreetmap
-
----
-
-![BTV](https://www.dropbox.com/s/167gm0kq2db74lw/Screenshot%202017-09-29%2016.23.43.png?dl=1)
-
----
-
-. . . [the Humanitarian OpenStreetmap Team (HOT)](http://tasks.hotosm.org/)
-
----
-
-![HOT](https://wiki.openstreetmap.org/w/images/thumb/a/af/Hot_logo_with_text.svg/1024px-Hot_logo_with_text.svg.png)
 
 ---
 
